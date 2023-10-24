@@ -23,6 +23,12 @@ export class TasksComponent implements OnInit {
 
     this.taskService.updateTaskReminder(task).subscribe();
   }
+  addTask(newTask: Task) {
+    console.log(newTask);
+    this.taskService
+      .addTask(newTask)
+      .subscribe((newTask) => this.tasks.push(newTask));
+  }
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
